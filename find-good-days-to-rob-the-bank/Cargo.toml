@@ -1,0 +1,6 @@
+[package]
+name = "find-good-days-to-rob-the-bank"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]

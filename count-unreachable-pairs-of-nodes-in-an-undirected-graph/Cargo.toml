@@ -1,0 +1,6 @@
+[package]
+name = "count-unreachable-pairs-of-nodes-in-an-undirected-graph"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]

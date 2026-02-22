@@ -48,12 +48,6 @@ pub fn minimum_operations(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
                 original.push(node.borrow().val);
                 map.insert(node.borrow().val, i);
 
-                for j in (0..sorted.len()).rev() {
-                    if j > 0 && sorted[j] < sorted[j - 1] {
-                        sorted.swap(j, j - 1);
-                    }
-                }
-
                 if let Some(left_node) = node.borrow().left.clone() {
                     queue.push_back(left_node);
                 }
@@ -63,6 +57,8 @@ pub fn minimum_operations(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
                 }
             }
         }
+
+        sorted.sort();
 
         for i in 0..original.len() {
             if original[i] != sorted[i] {
@@ -75,7 +71,7 @@ pub fn minimum_operations(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
             }
         }
 
-        result += max(0, level_ops - 1);
+        result += max(0, level_ops);
     }
 
     result
